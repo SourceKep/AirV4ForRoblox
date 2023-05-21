@@ -118,7 +118,7 @@ end
 coroutine.wrap(XBGA_fake_script)()
 local function JWXU_fake_script() -- TextButton_2.LocalScript 
 	local script = Instance.new('LocalScript', TextButton_2)
-	
+	function Click()
 	
 	function Teleport(s)
 		local Plr = game.Players.LocalPlayer
@@ -178,22 +178,30 @@ function AutoBuySwords()
             end
       end)
 end
-
+if AutoFarm == true then
+	AutoBuyBelts()
+	AutoBuySwords()
+	AutoTeleport()
+	AutoWing()
+	AutoFarm = false
+elseif AutoFarm == false then
+	AutoFarm = true
+end
 	
 
-	script.Parent.MouseButton1Click:Connect(function() 
-		if AutoFarm == true then
-			AutoBuyBelts()
-			AutoBuySwords()
-			AutoTeleport()
-			AutoWing()
-			AutoFarm = false
-		elseif AutoFarm == false then
-			AutoFarm = true
-		end
-
-	end)
+	script.Parent.MouseButton1Click:Connect(Click)
+   end
 end
+
+
+
+
+
+
+
+
+
+
 
 	
 coroutine.wrap(JWXU_fake_script)()
