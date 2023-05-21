@@ -127,9 +127,8 @@ local function JWXU_fake_script() -- TextButton_2.LocalScript
 			end
 		end
 		
-		
-		
-
+		getgenv().AutoFarm = true
+	
 function AutoWing()
       spawn(function() 
             while AutoFarm == true do
