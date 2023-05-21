@@ -128,7 +128,7 @@ local function JWXU_fake_script() -- TextButton_2.LocalScript
 		end
 	end
 		
-		local AutoFarm = true
+		getgenv().AutoFarm = true
 		function AutoWing()
 			spawn(function() 
 				  while AutoFarm == true do
@@ -191,9 +191,9 @@ end
 		elseif AutoFarm == false then
 			AutoFarm = true
 		end
+
 	end)
 end
-	
 
 	
 coroutine.wrap(JWXU_fake_script)()
@@ -201,12 +201,6 @@ local function DEOMLL_fake_script()
 	local script = Instance.new('LocalScript', TextButton_3)
 
 	function Click(Mouse)
-		
-		
-		
-		
-		
-		
 
 		local I = true
 	
