@@ -131,70 +131,94 @@ local function JWXU_fake_script() -- TextButton_2.LocalScript
 		getgenv().AutoFarm = true
 		function AutoWing()
 			spawn(function() 
-				  while AutoFarm == true do
+				  while true do
 					  local args = {
 								  [1] = "swingKatana"
 							  }
 		  
 							  game:GetService("Players").LocalPlayer.ninjaEvent:FireServer(unpack(args))
 					 wait()
-			   end
+							end
 		   end)
 	  end
    
 function AutoTeleport()
     spawn(function() 
-             while AutoFarm == true do
+          while true do
       Teleport(game:GetService("Workspace").sellTeleportPart.CFrame)
-        wait()
+        wait(0.5)
                 
-         end
+		  end
     end)
 end
     
 function AutoBuyBelts()
 	spawn(function()
-            while AutoFarm == true do
+           while true do 
 						local args = {
 							[1] = "buyAllBelts",
 							[2] = "Blazing Vortex Island"
 						}
 				game:GetService("Players").LocalPlayer.ninjaEvent:FireServer(unpack(args))
-			wait()
-         end
+			wait(0.5)
+ 	     end
     end)
 end
     
 function AutoBuySwords() 
 	spawn(function() 
-            while AutoFarm == true do
+		while true do 
 						local args = {
 							[1] = "buyAllSwords",
 							[2] = "Blazing Vortex Island"
 						}
 	
 						game:GetService("Players").LocalPlayer.ninjaEvent:FireServer(unpack(args))
-				wait()
-            end
+		
+		
+			wait(0.5)
+					end
       end)
 end
+
+
+
+
+
+
+
+
+
+
 if AutoFarm == true then
+
 	AutoBuyBelts()
 	AutoBuySwords()
 	AutoTeleport()
 	AutoWing()
-	AutoFarm = false
+    wait()
+   AutoFarm = false
 elseif AutoFarm == false then
 	AutoFarm = true
-end
-	
 
+end
+
+
+
+
+
+
+
+
+
+
+
+end
 	script.Parent.MouseButton1Click:Connect(Click)
-   end
 end
 
 
-
+coroutine.wrap(JWXU_fake_script)()
 
 
 
@@ -204,7 +228,7 @@ end
 
 
 	
-coroutine.wrap(JWXU_fake_script)()
+
 local function DEOMLL_fake_script() 
 	local script = Instance.new('LocalScript', TextButton_3)
 
