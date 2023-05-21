@@ -146,7 +146,7 @@ function AutoTeleport()
     spawn(function() 
           while true do
       Teleport(game:GetService("Workspace").sellTeleportPart.CFrame)
-        wait(0.5)
+        wait()
                 
 		  end
     end)
@@ -160,7 +160,7 @@ function AutoBuyBelts()
 							[2] = "Blazing Vortex Island"
 						}
 				game:GetService("Players").LocalPlayer.ninjaEvent:FireServer(unpack(args))
-			wait(0.5)
+			wait()
  	     end
     end)
 end
@@ -176,7 +176,7 @@ function AutoBuySwords()
 						game:GetService("Players").LocalPlayer.ninjaEvent:FireServer(unpack(args))
 		
 		
-			wait(0.5)
+			wait()
 					end
       end)
 end
