@@ -118,6 +118,8 @@ end
 coroutine.wrap(XBGA_fake_script)()
 local function JWXU_fake_script() -- TextButton_2.LocalScript 
 	local script = Instance.new('LocalScript', TextButton_2)
+	
+	
 	function Teleport(s)
 		local Plr = game.Players.LocalPlayer
 		local Cf = Plr.Character.HumanoidRootPart
@@ -127,8 +129,6 @@ local function JWXU_fake_script() -- TextButton_2.LocalScript
 	end
 		
 		local AutoFarm = true
-		
-
 		function AutoWing()
 			spawn(function() 
 				  while AutoFarm == true do
@@ -177,10 +177,10 @@ function AutoBuySwords()
 				wait()
             end
       end)
+end
 
 	
 
- script.Parent.MouseButton1Click:Connect(function()
 	script.Parent.MouseButton1Click:Connect(function() 
 		if AutoFarm == true then
 			AutoBuyBelts()
@@ -192,8 +192,10 @@ function AutoBuySwords()
 			A = true
 		end
 	end)
-end)
+end
+	
 
+	
 coroutine.wrap(JWXU_fake_script)()
 local function DEOMLL_fake_script() 
 	local script = Instance.new('LocalScript', TextButton_3)
