@@ -194,7 +194,6 @@ function AutoBuySwords()
 	end)
 end)
 
-end
 coroutine.wrap(JWXU_fake_script)()
 local function DEOMLL_fake_script() 
 	local script = Instance.new('LocalScript', TextButton_3)
