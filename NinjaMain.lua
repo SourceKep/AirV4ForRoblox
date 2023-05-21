@@ -187,9 +187,9 @@ end
 			AutoBuySwords()
 			AutoTeleport()
 			AutoWing()
-			A = false
-		elseif A == false then
-			A = true
+			AutoFarm = false
+		elseif AutoFarm == false then
+			AutoFarm = true
 		end
 	end)
 end
