@@ -118,29 +118,29 @@ end
 coroutine.wrap(XBGA_fake_script)()
 local function JWXU_fake_script() -- TextButton_2.LocalScript 
 	local script = Instance.new('LocalScript', TextButton_2)
-		getgenv().AutoFarm = true
-		function Teleport(s)
-			local Plr = game.Players.LocalPlayer
-			local Cf = Plr.Character.HumanoidRootPart
-			if Plr then
-				Cf.CFrame = s
-			end
+	function Teleport(s)
+		local Plr = game.Players.LocalPlayer
+		local Cf = Plr.Character.HumanoidRootPart
+		if Plr then
+			Cf.CFrame = s
 		end
+	end
 		
-		getgenv().AutoFarm = true
-	
-function AutoWing()
-      spawn(function() 
-            while AutoFarm == true do
-            	local args = {
-							[1] = "swingKatana"
-						}
-	
-						game:GetService("Players").LocalPlayer.ninjaEvent:FireServer(unpack(args))
-			   wait()
-         end
-     end)
-end
+		local AutoFarm = true
+		
+
+		function AutoWing()
+			spawn(function() 
+				  while AutoFarm == true do
+					  local args = {
+								  [1] = "swingKatana"
+							  }
+		  
+							  game:GetService("Players").LocalPlayer.ninjaEvent:FireServer(unpack(args))
+					 wait()
+			   end
+		   end)
+	  end
    
 function AutoTeleport()
     spawn(function() 
