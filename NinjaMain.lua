@@ -88,7 +88,21 @@ TextLabel_2.TextWrapped = true
 
 
 
+uis = game:GetService("UserInputService")
 
+uis.InputBegan:Connect(function(input)
+	if input.KeyCode == Enum.KeyCode.L then
+	ScreenGui.Enabled = true
+
+	end
+end)
+
+
+uis.InputEnded:Connect(function(input) 
+	if input.KeyCode == Enum.KeyCode.L then
+		ScreenGui.Enabled = false
+	end
+end)
 
 
 
