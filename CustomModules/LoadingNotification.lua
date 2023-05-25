@@ -58,7 +58,7 @@ local function QPJU_fake_script() -- Frame.LocalScript
 	local TweenService = game:GetService("TweenService")
 	
 	local TweenInformation = TweenInfo.new(
-		0.9,
+		0.2,
 		Enum.EasingStyle.Sine,
 		Enum.EasingDirection.In,
 		0,
@@ -95,7 +95,7 @@ local function QPJU_fake_script() -- Frame.LocalScript
 	
 	
 	local TweenInformation2 = TweenInfo.new(
-		9,
+		1,
 		Enum.EasingStyle.Sine,
 		Enum.EasingDirection.In,
 		10,
