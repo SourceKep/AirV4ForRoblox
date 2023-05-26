@@ -1,103 +1,145 @@
 
-
-
+--Credits to GUI to lua for the GUI
 local plr = game.Players.LocalPlayer.Character.PrimaryPart or game.Players.LocalPlayer.Character:FindFirstChild("PrimaryPart")
+local humanoid = game.Players.LocalPlayer.Character.Humanoid
+local plr2 = game.Players.LocalPlayer
 local RunService = game:GetService("RunService")
 local TweenService = game:GetService("TweenService")
-local LightingService = game:GetService("Lighting")
+local Lighting= game:GetService("Lighting")
 local CoreService = game:GetService("CoreGui")
 local IsInjected = true
-local load = loadstring(game:HttpGet("https://raw.githubusercontent.com/SourceKep/AirV4ForRoblox/main/NotificationLoading.lua"), true)()
 
 
-  
-  
-local function Speed(Speed, Tog)
-  local Toggle = {Enabled = Tog}
-  local plr = game.Players.LocalPlayer.Character.Humanoid or game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") or game.Players.LocalPlayer.Character.PrimaryPart or game.Players.LocalPlayer.Character:FindFirstChild("PrimaryPart")
-  if plr and Toggle.Enabled == true then
-  plr.WalkSpeed = Speed
-  elseif plr and Toggle.Enabled == false then
-  while true do
-  plr.WalkSpeed = 23
+loadstring(game:HttpGet("https://raw.githubusercontent.com/SourceKep/AirV4ForRoblox/main/CustomModules/LoadingNotification.lua"), true)()
+task.wait(3)
+
+local Gui = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local UICorner = Instance.new("UICorner")
+local TextLabel = Instance.new("TextLabel")
+local TextBox = Instance.new("TextBox")
+local UICorner_2 = Instance.new("UICorner")
+
+
+Gui.Name = "Gui"
+Gui.Parent = CoreService
+Gui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Frame.Parent = Gui
+Frame.BackgroundColor3 = Color3.fromRGB(30, 54, 75)
+Frame.Position = UDim2.new(0.836780608, 0, 0.828610837, 0)
+Frame.Size = UDim2.new(0.153601006, 0, 0.146517351, 0)
+
+UICorner.Parent = Frame
+
+TextLabel.Parent = Frame
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.BackgroundTransparency = 1.000
+TextLabel.BorderSizePixel = 0
+TextLabel.Position = UDim2.new(-0.000651299953, 0, 0.084810853, 0)
+TextLabel.Size = UDim2.new(1.00000036, 0, 0.48333478, 0)
+TextLabel.Font = Enum.Font.Gotham
+TextLabel.Text = "AirV4"
+TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.TextScaled = true
+TextLabel.TextSize = 14.000
+TextLabel.TextWrapped = true
+
+TextBox.Parent = Frame
+TextBox.BackgroundColor3 = Color3.fromRGB(34, 47, 72)
+TextBox.Position = UDim2.new(0.00842221733, 0, 0.573209584, 0)
+TextBox.Size = UDim2.new(0.991577744, 0, 0.424520552, 0)
+TextBox.Font = Enum.Font.SourceSans
+TextBox.Text = ""
+TextBox.TextColor3 = Color3.fromRGB(65, 16, 155)
+TextBox.TextScaled = true
+TextBox.TextSize = 14.000
+TextBox.TextWrapped = true
+
+UICorner_2.Parent = TextBox
+
+
+
+
+
+local function Speed(Toggle)
+local enabled = {Enabled = Toggle}
+local humanoid = game.Players.LocalPlayer.Character.Humanoid
+local speedchart = {Max = 23,Min = 16,}
+if humanoid.WalkSpeed > speedchart.Max then
+  while enabled.Enabled == true do
+    task.wait()
+    humanoid.WalkSpeed = speedchart.Max
+  end
+elseif humanoid.WalkSpeed < speedchart.Min then
+  while enabled.Enabled == true do
+    task.wait()
+  humanoid.WalkSpeed = speedchart.Max
+    end
+  end
+  if humanoid and enabled.Enabled == true then
+  while enabled.Enabled == true do
   task.wait()
-   end
+  humanoid.WalkSpeed = 23
+  	end
+    if humanoid and enabled.Enabled == false then
+      humanoid.WalkSpeed = speedchart.Min
+    end
   end
 end
 
 
-local function HighJump(Toggle)
-local Toggle = {Enabled = Toggle}
-local Plr = game.Players.LocalPlayer.Character.PrimaryPart
-if Plr and Toggle.Enabled == true then
-	Plr.CFrame = Plr.CFrame + Vector3.new(0, 30, 0)
-   end
-end
 
-
- local function FOVChanger(Fov, toggle)
- local plr = game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") or game.Players.LocalPlayer.Character.PrimaryPart or game.Players.LocalPlayer.Character:FindFirstChild("PrimaryPart")
- local Toggle = {Enabled = toggle}
-
- if plr and Toggle.Enabled == true then
-       while Toggle.Enabled == true do
-       game.Workspace.CurrentCamera.FieldOfView = Fov
-       task.wait()
-   end
- elseif Toggle.Enabled == false then
-         game.Workspace.CurrentCamera.FieldOfView = 100
-     end
+local function SuperJump(Toggle)
+local jumps = {MaxHeight = 30,Min = 10,enabled = Toggle}
+local plr = game.Players.LocalPlayer.Character.PrimaryPart or game.Players.LocalPlayer.Character:FindFirstChild("PrimaryPart")
+if plr and jumps.enabled == true then
+  plr.CFrame = plr.CFrame + Vector3.new(0, jumps.MaxHeight or jumps.Min, 0)
+  end
 end
 
 
 
-
-local function tp(child, toggle)
-local Player = game.Players.LocalPlayer.Character.PrimaryPart
-local plr2 = game.Players:FindFirstChild(child).Character.PrimaryPart
-local Tp = {Enabled = toggle}
-
-if Tp.Enabled == true and plr2 and Player then
-repeat
-  Player.CFrame = plr2.CFrame
-until plr2.Health == 0
-wait()
- end
+local function fov(Toggle)
+local FOV = {Enabled = Toggle, Min = 100,Max = 120,}
+if game.Workspace.CurrentCamera.FieldOfView > FOV.Max then
+  while FOV.Enabled == true do
+      game.Workspace.CurrentCamera.FieldOfView = FOV.Max
+  end
+elseif game.Workspace.CurrentCamera.FieldOfView < FOV.Min then
+while FOV.Enabled == true do
+  task.wait()
+  game.Workspace.CurrentCamera.FieldOfView = FOV.Min
+  end
 end
-
-
-local function fly(Toggle)
-  local Fly = {Enabled = Toggle}
-  local plr = game.Players.LocalPlayer.Character.PrimaryPart
-  local FlyY = function()
-    local flyY = {Enabled = true}
-    if flyY.Enabled == true then
-    while flyY.Enabled == true do 
-    plr.CFrame = plr.CFrame + plr.CFrame.UpVector
-          end
-       end
-    end
-
-    local FlyX = function()
-      local flyX = {Enabled = true}
-      if flyX.Enabled == true then
-        while flyX.Enabled == true do
-        plr.CFrame = plr.CFrame + plr.CFrame.LookVector
-      end
-    end
+if FOV.Enabled == true then
+while FOV.Enabled == true do
+  task.wait()
+  game.Workspace.CurrentCamera.FieldOfView = FOV.Max
+  end
+  end
 end
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-end
+TextBox.MouseLeave:Connect(function(x, y)
+  if TextBox.Text == ";speed" then
+    Speed(true)
+    task.wait(1)
+    TextBox.Text = ""
+  elseif TextBox.Text == ";unspeed" then
+    Speed(false)
+    task.wait(1)
+    TextBox.Text = ""
+  end
+  if TextBox.Text == ";fov120" then
+    fov(true)
+    task.wait(1)
+    TextBox.Text = ""
+  end
+  if TextBox.Text == ";hj" then
+    SuperJump(true)
+    task.wait(1)
+    TextBox.Text = ""
+  end
+end) 
