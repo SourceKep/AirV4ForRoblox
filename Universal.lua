@@ -12,14 +12,7 @@ local IsInjected = true
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/SourceKep/AirV4ForRoblox/main/CustomModules/LoadingNotification.lua"), true)()
 
-
-
-
-
--- Gui to Lua
--- Version: 3.2
-
--- Instances:
+task.wait(3)
 
 local Gui = Instance.new("ScreenGui")
 local Frame = Instance.new("Frame")
@@ -203,14 +196,6 @@ TextBox.MouseLeave:Connect(function(x, y)
   end
   if TextBox.Text == ";uninject" then
     uninject()
-    task.wait(1)
-    TextBox.Text = ""
-  end
-  if TextBox.Text == ";reloadgui" then
-    uninject()
-    task.wait(1)
-    CreateGui2()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/SourceKep/AirV4ForRoblox/main/CustomModules/LoadingNotification.lua"), true)()
     task.wait(1)
     TextBox.Text = ""
   end
