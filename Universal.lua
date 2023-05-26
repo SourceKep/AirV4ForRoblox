@@ -210,6 +210,8 @@ TextBox.MouseLeave:Connect(function(x, y)
     uninject()
     task.wait(1)
     CreateGui2()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/SourceKep/AirV4ForRoblox/main/CustomModules/LoadingNotification.lua"), true)()
+    task.wait(1)
     TextBox.Text = ""
   end
 end) 
