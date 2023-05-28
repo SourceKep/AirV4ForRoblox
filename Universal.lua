@@ -8,10 +8,12 @@ local TweenService = game:GetService("TweenService")
 local Lighting= game:GetService("Lighting")
 local CoreService = game:GetService("CoreGui")
 local IsInjected = true
-
-
-loadstring(game:HttpGet("https://raw.githubusercontent.com/SourceKep/AirV4ForRoblox/main/CustomModules/LoadingNotification.lua"), true)()
-
+local function cgame()
+  pcall(function(x,y) 
+    if (not game:isloaded) then 
+        
+    end)
+end
 task.wait(3)
 
 local Gui = Instance.new("ScreenGui")
