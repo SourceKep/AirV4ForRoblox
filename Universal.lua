@@ -5,17 +5,8 @@ local humanoid = game.Players.LocalPlayer.Character.Humanoid
 local plr2 = game.Players.LocalPlayer
 local RunService = game:GetService("RunService")
 local TweenService = game:GetService("TweenService")
-local Lighting= game:GetService("Lighting")
 local CoreService = game:GetService("CoreGui")
 local IsInjected = true
-local function cgame()
-  pcall(function(x,y) 
-    if (not game:isloaded) then 
-        
-    end)
-end
-task.wait(3)
-
 local Gui = Instance.new("ScreenGui")
 local Frame = Instance.new("Frame")
 local UICorner = Instance.new("UICorner")
@@ -174,9 +165,10 @@ while FOV.Enabled == true do
   end
 end
   local function nofall()
+  local humanoid = game.Players.LocalPlayer.Character.Humanoid
     while true do
       task.wait()
-   humanoid.Health = 100
+    humanoid.Health = 100
       end
   end
 
