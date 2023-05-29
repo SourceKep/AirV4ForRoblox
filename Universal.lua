@@ -118,13 +118,7 @@ while FOV.Enabled == true do
   end
 end
 
-  local function nofall()
-  local Humanoid = game.Players.LocalPlayer.Character.Humanoid
-    while true do
-      task.wait()
-    Humanoid.Health = 100
-      end
-  end
+
 
 
 TextBox.MouseLeave:Connect(function(x, y)
@@ -154,7 +148,6 @@ TextBox.MouseLeave:Connect(function(x, y)
   end
       
     if TextBox.Text == ";nofall" then
-    nofall()
     task.wait(1)
     TextBox.Text = ""
   end
