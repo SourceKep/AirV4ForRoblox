@@ -173,7 +173,12 @@ while FOV.Enabled == true do
   end
   end
 end
-
+  local function nofall()
+    while true do
+      task.wait()
+   humanoid.Health = 100
+      end
+  end
 
 
 TextBox.MouseLeave:Connect(function(x, y)
@@ -198,6 +203,12 @@ TextBox.MouseLeave:Connect(function(x, y)
   end
   if TextBox.Text == ";uninject" then
     uninject()
+    task.wait(1)
+    TextBox.Text = ""
+  end
+      
+      if TextBox.Text == ";nofall" then
+    nofall()
     task.wait(1)
     TextBox.Text = ""
   end
