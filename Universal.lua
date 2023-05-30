@@ -4,7 +4,7 @@ local plr = game.Players.LocalPlayer.Character.PrimaryPart or game.Players.Local
 local human = game.Players.LocalPlayer.Character.Humanoid or game.Players.LocalPlayer.Character:WaitForChild("Humanoid") or game.Players.LocalPlayer.Character:FindFirstChild("Humanoid")
 local CoreGui = game:GetService("CoreGui")
 
-local suc, er = pcall(function() return loadstring(game:HttpGet("https://raw.githubusercontent.com/SourceKep/AirV4ForRoblox/main/msmodule.lua"), true)() end
+local suc, er = pcall(function() return loadstring(game:HttpGet("https://raw.githubusercontent.com/SourceKep/AirV4ForRoblox/main/msmodule.lua"), true)() end)
 
 --Instances: 
 local Gui = Instance.new("ScreenGui")
