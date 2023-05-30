@@ -1,7 +1,5 @@
 
 --Credits to GUI to LUA converter
-local plr = game.Players.LocalPlayer.Character.PrimaryPart or game.Players.LocalPlayer.Character:WaitForChild("PrimaryPart") or game.Players.LocalPlayer.Character:FindFirstChild("PrimaryPart")
-local human = game.Players.LocalPlayer.Character.Humanoid or game.Players.LocalPlayer.Character:WaitForChild("Humanoid") or game.Players.LocalPlayer.Character:FindFirstChild("Humanoid")
 local CoreGui = game:GetService("CoreGui")
 local suc, er = pcall(function() return loadstring(game:HttpGet("https://raw.githubusercontent.com/SourceKep/AirV4ForRoblox/main/msmodule.lua", true))() end)
 
@@ -37,7 +35,6 @@ TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
 TextLabel.TextScaled = true
 TextLabel.TextSize = 14.000
 TextLabel.TextWrapped = true
-
 TextBox.Parent = Frame
 TextBox.BackgroundColor3 = Color3.fromRGB(34, 47, 72)
 TextBox.Position = UDim2.new(0.00842221733, 0, 0.573209584, 0)
@@ -48,7 +45,7 @@ TextBox.TextColor3 = Color3.fromRGB(65, 16, 155)
 TextBox.TextScaled = true
 TextBox.TextSize = 14.000
 TextBox.TextWrapped = true
-
+UICorner_2.Parent = TextBox
 
 local function speed(toggle)
   local sp = {}
