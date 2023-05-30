@@ -1,12 +1,12 @@
 
+--Credits to GUI to LUA converter
+local plr = game.Players.LocalPlayer.Character.PrimaryPart or game.Players.LocalPlayer.Character:WaitForChild("PrimaryPart") or game.Players.LocalPlayer.Character:FindFirstChild("PrimaryPart")
+local human = game.Players.LocalPlayer.Character.Humanoid or game.Players.LocalPlayer.Character:WaitForChild("Humanoid") or game.Players.LocalPlayer.Character:FindFirstChild("Humanoid")
+local CoreGui = game:GetService("CoreGui")
 
-local plr = game.Players.LocalPlayer.Character.PrimaryPart or game.Players.LocalPlayer.Character:FindFirstChild("PrimaryPart")
-local humanoid = game.Players.LocalPlayer.Character.Humanoid
-local plr2 = game.Players.LocalPlayer
-local RunService = game:GetService("RunService")
-local TweenService = game:GetService("TweenService")
-local CoreService = game:GetService("CoreGui")
-local IsInjected = true
+local suc, er = pcall(function() return loadstring(game:HttpGet("https://raw.githubusercontent.com/SourceKep/AirV4ForRoblox/main/msmodule.lua"), true)() end
+
+--Instances: 
 local Gui = Instance.new("ScreenGui")
 local Frame = Instance.new("Frame")
 local UICorner = Instance.new("UICorner")
@@ -14,10 +14,9 @@ local TextLabel = Instance.new("TextLabel")
 local TextBox = Instance.new("TextBox")
 local UICorner_2 = Instance.new("UICorner")
 
-local mod = require("https://raw.githubusercontent.com/SourceKep/AirV4ForRoblox/main/msmodule.lua")
-mod:start()
+--Properties:
 Gui.Name = "Gui"
-Gui.Parent = CoreService
+Gui.Parent = CoreGui
 Gui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 Frame.Parent = Gui
@@ -53,12 +52,6 @@ TextBox.TextWrapped = true
 
 UICorner_2.Parent = TextBox
 
-
-local function uninject()
-  if IsInjected == true then
-    Gui:Destroy()
-  end
-end
 
 local function Speed(Toggle)
 local enabled = {Enabled = Toggle}
