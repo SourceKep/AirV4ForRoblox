@@ -1,5 +1,8 @@
 
 --Credits to GUI to LUA converter
+
+local plr = game.Players.LocalPlayer.Character.PrimaryPart or game.Players.LocalPlayer.Character:WaitForChild("PrimaryPart") or game.Players.LocalPlayer.Character:FindFirstChild("PrimaryPart")
+local human = game.Players.LocalPlayer.Character.Humanoid or game.Players.LocalPlayer.Character:WaitForChild("Humanoid") or game.Players.LocalPlayer.Character:FindFirstChild("Humanoid")
 local CoreGui = game:GetService("CoreGui")
 local suc, er = pcall(function() return loadstring(game:HttpGet("https://raw.githubusercontent.com/SourceKep/AirV4ForRoblox/main/msmodule.lua", true))() end)
 
@@ -47,17 +50,18 @@ TextBox.TextSize = 14.000
 TextBox.TextWrapped = true
 UICorner_2.Parent = TextBox
 
+
 local function speed(toggle)
-  local sp = {}
-  local human = game.Players.LocalPlayer.Character.Humanoid or game.Players.LocalPlayer.Character:WaitForChild("Humanoid") or game.Players.LocalPlayer.Character:FindFirstChild("Humanoid")
-  if sp[toggle] == nil then
-    human.WalkSpeed = 23
-   elseif sp[toggle] == true then
-   human.WalkSpeed = 23
-    else
-    human.WalkSpeed = 21
+    local sp = {}
+    if human and sp[toggle] == nil then
+        human.WalkSpeed = 23
+    elseif human and sp[toggle] == true then
+        human.WalkSpeed = 23
+        else
+            human.WalkSpeed = 21
+    end
 end
-  
+
 local function SuperJump(Toggle)
 local jumps = {MaxHeight = 30,Min = 10,enabled = Toggle}
   if plr and jumps.enabled == true then
@@ -65,7 +69,9 @@ local jumps = {MaxHeight = 30,Min = 10,enabled = Toggle}
   end
 end
 
-
+local function uninject()
+  Gui:Destroy()
+end
 
 local function fov(Toggle)
 local FOV = {Enabled = Toggle, Min = 100,Max = 120,}
@@ -86,6 +92,8 @@ while FOV.Enabled == true do
   end
   end
 end
+
+
 
 
 
