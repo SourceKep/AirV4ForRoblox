@@ -14,8 +14,8 @@ local TextLabel = Instance.new("TextLabel")
 local TextBox = Instance.new("TextBox")
 local UICorner_2 = Instance.new("UICorner")
 
---Properties:
-
+local mod = require("https://raw.githubusercontent.com/SourceKep/AirV4ForRoblox/main/CustomModules/LoadingNotification.lua"
+mod:start()
 Gui.Name = "Gui"
 Gui.Parent = CoreService
 Gui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
