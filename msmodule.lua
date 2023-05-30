@@ -1,5 +1,7 @@
-local LS = {}
-local function start()
+--Credits to GUI to LUA converter
+
+--Instances: 
+local CoreGui = game:GetService("CoreGui")
 local ScreenGui = Instance.new("ScreenGui")
 local Frame = Instance.new("Frame")
 local UICorner = Instance.new("UICorner")
@@ -7,8 +9,8 @@ local TextLabel = Instance.new("TextLabel")
 local TextLabel_2 = Instance.new("TextLabel")
 
 
-
-ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+--Properties: 
+ScreenGui.Parent = CoreGui
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 Frame.Parent = ScreenGui
@@ -24,7 +26,7 @@ TextLabel.BackgroundTransparency = 1.000
 TextLabel.Position = UDim2.new(0.0600885004, 0, 0.459477544, 0)
 TextLabel.Size = UDim2.new(0.710729241, 0, 0.348245114, 0)
 TextLabel.Font = Enum.Font.Gotham
-TextLabel.Text = "All modules loaded"
+TextLabel.Text = "✎ All modules loaded"
 TextLabel.TextColor3 = Color3.fromRGB(107, 107, 107)
 TextLabel.TextScaled = true
 TextLabel.TextSize = 1.000
@@ -36,7 +38,7 @@ TextLabel_2.BackgroundTransparency = 1.000
 TextLabel_2.Position = UDim2.new(-0.0019375477, 0, 0.0832251608, 0)
 TextLabel_2.Size = UDim2.new(0.837020755, 0, 0.457621962, 0)
 TextLabel_2.Font = Enum.Font.Gotham
-TextLabel_2.Text = " Finished loading"
+TextLabel_2.Text = "✦ Finished loading"
 TextLabel_2.TextColor3 = Color3.fromRGB(255, 255, 255)
 TextLabel_2.TextScaled = true
 TextLabel_2.TextSize = 1.000
@@ -121,8 +123,5 @@ local function QPJU_fake_script() -- Frame.LocalScript
 	script.Parent:Destroy()
 end
 coroutine.wrap(QPJU_fake_script)()
-
-end
-return LS
 
 
