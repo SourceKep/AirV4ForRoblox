@@ -5,7 +5,7 @@ local human = game.Players.LocalPlayer.Character.Humanoid or game.Players.LocalP
 local CoreGui = game:GetService("CoreGui")
 local suc, er = pcall(function() return loadstring(game:HttpGet("https://raw.githubusercontent.com/SourceKep/AirV4ForRoblox/main/msmodule.lua", true))() end)
 --Instances: 
-task.wait(3)
+task.wait(5)
 local Gui = Instance.new("ScreenGui")
 local Frame = Instance.new("Frame")
 local UICorner = Instance.new("UICorner")
