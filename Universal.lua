@@ -14,7 +14,7 @@ local TextLabel = Instance.new("TextLabel")
 local TextBox = Instance.new("TextBox")
 local UICorner_2 = Instance.new("UICorner")
 
-local mod = require("msmodule.lua")
+local mod = require("https://raw.githubusercontent.com/SourceKep/AirV4ForRoblox/main/msmodule.lua")
 mod:start()
 Gui.Name = "Gui"
 Gui.Parent = CoreService
