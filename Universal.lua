@@ -49,7 +49,73 @@ TextBox.TextScaled = true
 TextBox.TextSize = 14.000
 TextBox.TextWrapped = true
 
-UICorner_2.Parent = TextBox
 
-wait(2)
-Gui:Destroy()
+local function speed(toggle)
+  local sp = {}
+  local human = game.Players.LocalPlayer.Character.Humanoid or game.Players.LocalPlayer.Character:WaitForChild("Humanoid") or game.Players.LocalPlayer.Character:FindFirstChild("Humanoid")
+  if sp[toggle] == nil then
+    human.WalkSpeed = 23
+   elseif sp[toggle] == true then
+   human.WalkSpeed = 23
+    else
+    human.WalkSpeed = 21
+end
+  
+local function SuperJump(Toggle)
+local jumps = {MaxHeight = 30,Min = 10,enabled = Toggle}
+  if plr and jumps.enabled == true then
+  plr.CFrame = plr.CFrame + Vector3.new(0, jumps.MaxHeight or jumps.Min, 0)
+  end
+end
+
+
+
+local function fov(Toggle)
+local FOV = {Enabled = Toggle, Min = 100,Max = 120,}
+if game.Workspace.CurrentCamera.FieldOfView > FOV.Max then
+  while FOV.Enabled == true do
+      game.Workspace.CurrentCamera.FieldOfView = FOV.Max
+  end
+elseif game.Workspace.CurrentCamera.FieldOfView < FOV.Min then
+while FOV.Enabled == true do
+  task.wait()
+  game.Workspace.CurrentCamera.FieldOfView = FOV.Min
+  end
+end
+if FOV.Enabled == true then
+while FOV.Enabled == true do
+  task.wait()
+  game.Workspace.CurrentCamera.FieldOfView = FOV.Max
+  end
+  end
+end
+
+
+
+TextBox.MouseLeave:Connect(function(x, y)
+  if TextBox.Text == ";speed" then
+    speed(true)
+    task.wait(1)
+    TextBox.Text = ""
+  elseif TextBox.Text == ";unspeed" then
+    speed(false)
+    task.wait(1)
+    TextBox.Text = ""
+  end
+  if TextBox.Text == ";fov120" then
+    fov(true)
+    task.wait(1)
+    TextBox.Text = ""
+  end
+  if TextBox.Text == ";hj" then
+    SuperJump(true)
+    task.wait(1)
+    TextBox.Text = ""
+  end
+  if TextBox.Text == ";uninject" then
+    uninject()
+    task.wait(1)
+    TextBox.Text = ""
+  end
+      
+end) 
