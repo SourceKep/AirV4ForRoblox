@@ -52,38 +52,19 @@ TextBox.TextWrapped = true
 UICorner_2.Parent = TextBox
 
 
-local function Speed(Toggle)
-local enabled = {Enabled = Toggle}
-local humanoid = game.Players.LocalPlayer.Character.Humanoid
-local speedchart = {Max = 23,Min = 16,}
-if humanoid.WalkSpeed > speedchart.Max then
-  while enabled.Enabled == true do
-    task.wait()
-    humanoid.WalkSpeed = speedchart.Max
-  end
-elseif humanoid.WalkSpeed < speedchart.Min then
-  while enabled.Enabled == true do
-    task.wait()
-  humanoid.WalkSpeed = speedchart.Max
-    end
-  end
-  if humanoid and enabled.Enabled == true then
-  while enabled.Enabled == true do
-  task.wait()
-  humanoid.WalkSpeed = 23
-  	end
-    if humanoid and enabled.Enabled == false then
-      humanoid.WalkSpeed = speedchart.Min
-    end
-  end
+local function speed(toggle)
+  local sp = {}
+  if sp[toggle] == nil then
+    human.WalkSpeed = 23
+   elseif sp[toggle] == true then
+   human.WalkSpeed = 23
+    else
+    human.WalkSpeed = 21
 end
-
-
-
+  
 local function SuperJump(Toggle)
 local jumps = {MaxHeight = 30,Min = 10,enabled = Toggle}
-local plr = game.Players.LocalPlayer.Character.PrimaryPart or game.Players.LocalPlayer.Character:FindFirstChild("PrimaryPart")
-if plr and jumps.enabled == true then
+  if plr and jumps.enabled == true then
   plr.CFrame = plr.CFrame + Vector3.new(0, jumps.MaxHeight or jumps.Min, 0)
   end
 end
@@ -111,21 +92,14 @@ while FOV.Enabled == true do
 end
 
 
-local function nofall()
-  local humanoid2 = game.Players.LocalPlayer.Character.Humanoid
-while true do
-task.wait()
-humanoid2.Health = 100
-end
-end
 
 TextBox.MouseLeave:Connect(function(x, y)
   if TextBox.Text == ";speed" then
-    Speed(true)
+    speed(true)
     task.wait(1)
     TextBox.Text = ""
   elseif TextBox.Text == ";unspeed" then
-    Speed(false)
+    speed(false)
     task.wait(1)
     TextBox.Text = ""
   end
@@ -145,9 +119,4 @@ TextBox.MouseLeave:Connect(function(x, y)
     TextBox.Text = ""
   end
       
-    if TextBox.Text == ";nofall" then
-      nofall()
-    task.wait(1)
-    TextBox.Text = ""
-  end
 end) 
