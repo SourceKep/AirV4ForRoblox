@@ -1,5 +1,5 @@
-
-
+local LS = {}
+local function start()
 local ScreenGui = Instance.new("ScreenGui")
 local Frame = Instance.new("Frame")
 local UICorner = Instance.new("UICorner")
@@ -122,8 +122,7 @@ local function QPJU_fake_script() -- Frame.LocalScript
 end
 coroutine.wrap(QPJU_fake_script)()
 
-
-
-
+end
+return LS
 
 
