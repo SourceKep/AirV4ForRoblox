@@ -1,5 +1,5 @@
 --Credits to GUI to LUA converter
-
+task.wait(3)
 --Instances: 
 local CoreGui = game:GetService("CoreGui")
 local ScreenGui = Instance.new("ScreenGui")
