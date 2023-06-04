@@ -1,125 +1,125 @@
 
---Credits to GUI to LUA converter
-local plr = game.Players.LocalPlayer.Character.PrimaryPart or game.Players.LocalPlayer.Character:WaitForChild("PrimaryPart") or game.Players.LocalPlayer.Character:FindFirstChild("PrimaryPart")
-local human = game.Players.LocalPlayer.Character.Humanoid or game.Players.LocalPlayer.Character:WaitForChild("Humanoid") or game.Players.LocalPlayer.Character:FindFirstChild("Humanoid")
 local CoreGui = game:GetService("CoreGui")
-local suc, er = pcall(function() return loadstring(game:HttpGet("https://raw.githubusercontent.com/SourceKep/AirV4ForRoblox/main/reloadfile.lua", true))() end)
---Instances: 
-task.wait(5)
-local Gui = Instance.new("ScreenGui")
+--Closes previous instance of Airv4
+for i, v in pairs(CoreGui:GetChildren()) do if v == CoreGui:FindFirstChild("AirV4") then v:Destroy() end end 
+task.wait(1)
+
+local Uninject = function() 
+   pcall(function()
+    for i, v in pairs(CoreGui:GetChildren()) do if v == CoreGui:FindFirstChild("AirV4") then v:Destroy() end end 
+   end )
+end
+
+local plr = game.Players.LocalPlayer
+local plr2 = game.Players.LocalPlayer.Character.PrimaryPart or game.Players.LocalPlayer.Character.Humanoid
+local plrC = game.Players.LocalPlayer.Character
+
+
+local AirV4 = Instance.new("ScreenGui")
 local Frame = Instance.new("Frame")
-local UICorner = Instance.new("UICorner")
 local TextLabel = Instance.new("TextLabel")
 local TextBox = Instance.new("TextBox")
-local UICorner_2 = Instance.new("UICorner")
+local TextLabel_2 = Instance.new("TextLabel")
 
 --Properties:
-Gui.Name = "Gui"
-Gui.Parent = CoreGui
-Gui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
-Frame.Parent = Gui
-Frame.BackgroundColor3 = Color3.fromRGB(30, 54, 75)
-Frame.Position = UDim2.new(0.836780608, 0, 0.828610837, 0)
-Frame.Size = UDim2.new(0.153601006, 0, 0.146517351, 0)
+AirV4.Name = "AirV4"
+AirV4.Parent = CoreGui
+AirV4.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
-UICorner.Parent = Frame
+Frame.Parent = AirV4
+Frame.BackgroundColor3 = Color3.fromRGB(33, 47, 93)
+Frame.Position = UDim2.new(0.841308415, 0, 0.669630229, 0)
+Frame.Size = UDim2.new(0.153601006, 0, 0.317633867, 0)
 
 TextLabel.Parent = Frame
 TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 TextLabel.BackgroundTransparency = 1.000
 TextLabel.BorderSizePixel = 0
-TextLabel.Position = UDim2.new(-0.000651299953, 0, 0.084810853, 0)
-TextLabel.Size = UDim2.new(1.00000036, 0, 0.48333478, 0)
+TextLabel.Position = UDim2.new(-0.000651303097, 0, -0.000105135143, 0)
+TextLabel.Size = UDim2.new(1.00000036, 0, 0.199624211, 0)
 TextLabel.Font = Enum.Font.Gotham
-TextLabel.Text = "AirV4"
+TextLabel.Text = "Air[V.1]"
 TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
 TextLabel.TextScaled = true
 TextLabel.TextSize = 14.000
 TextLabel.TextWrapped = true
+
 TextBox.Parent = Frame
-TextBox.BackgroundColor3 = Color3.fromRGB(34, 47, 72)
-TextBox.Position = UDim2.new(0.00842221733, 0, 0.573209584, 0)
-TextBox.Size = UDim2.new(0.991577744, 0, 0.424520552, 0)
+TextBox.BackgroundColor3 = Color3.fromRGB(55, 89, 152)
+TextBox.Position = UDim2.new(0, 0, 0.756541133, 0)
+TextBox.Size = UDim2.new(1.00421107, 0, 0.241189197, 0)
 TextBox.Font = Enum.Font.SourceSans
 TextBox.Text = ""
-TextBox.TextColor3 = Color3.fromRGB(65, 16, 155)
+TextBox.TextColor3 = Color3.fromRGB(85, 125, 255)
 TextBox.TextScaled = true
 TextBox.TextSize = 14.000
 TextBox.TextWrapped = true
-UICorner_2.Parent = TextBox
 
 
-local function speed(toggle)
-    local sp = {}
-    if human and sp[toggle] == nil then
-        human.WalkSpeed = 23
-    elseif human and sp[toggle] == true then
-        human.WalkSpeed = 23
-        else
-            human.WalkSpeed = 21
+--Modules & Scripts
+task.wait(1)
+
+
+local function Fov120()
+    while true do 
+    task.wait()
+    game.Workspace.CurrentCamera.FieldOfView = 120
     end
 end
 
-local function SuperJump(Toggle)
-local jumps = {MaxHeight = 30,Min = 10,enabled = Toggle}
-  if plr and jumps.enabled == true then
-  plr.CFrame = plr.CFrame + Vector3.new(0, jumps.MaxHeight or jumps.Min, 0)
-  end
+local function Speed() 
+while true do 
+task.wait()
+game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 23
+end
 end
 
-local function uninject()
-  Gui:Destroy()
+local function HighJump()
+    local jump = {Enabled = true}
+    if plr and jump.Enabled == true then
+        plr2.CFrame = plr2.CFrame + Vector3.new(0, 30, 0)
+    end
 end
 
-local function fov(Toggle)
-local FOV = {Enabled = Toggle, Min = 100,Max = 120,}
-if game.Workspace.CurrentCamera.FieldOfView > FOV.Max then
-  while FOV.Enabled == true do
-      game.Workspace.CurrentCamera.FieldOfView = FOV.Max
-  end
-elseif game.Workspace.CurrentCamera.FieldOfView < FOV.Min then
-while FOV.Enabled == true do
-  task.wait()
-  game.Workspace.CurrentCamera.FieldOfView = FOV.Min
-  end
-end
-if FOV.Enabled == true then
-while FOV.Enabled == true do
-  task.wait()
-  game.Workspace.CurrentCamera.FieldOfView = FOV.Max
-  end
-  end
+local function AutoQue()
+task.spawn(function()
+    local args = {
+        [1] = {
+            ["queueType"] = "bedwars_to1"
+        }
+    }
+    
+    game:GetService("ReplicatedStorage"):FindFirstChild("events-@easy-games/lobby:shared/event/lobby-events@getEvents.Events").joinQueue:FireServer(unpack(args))
+    end)
 end
 
+TextBox.MouseLeave:Connect(function()
+    if TextBox.Text == ";speed" then
+        Speed()
+        TextBox.Text = ""
+    end
 
-
-
-
-TextBox.MouseLeave:Connect(function(x, y)
-  if TextBox.Text == ";speed" then
-    speed(true)
-    task.wait(1)
-    TextBox.Text = ""
-  elseif TextBox.Text == ";unspeed" then
-    speed(false)
-    task.wait(1)
-    TextBox.Text = ""
-  end
-  if TextBox.Text == ";fov120" then
-    fov(true)
-    task.wait(1)
-    TextBox.Text = ""
-  end
-  if TextBox.Text == ";hj" then
-    SuperJump(true)
-    task.wait(1)
-    TextBox.Text = ""
-  end
-  if TextBox.Text == ";uninject" then
-    uninject()
-    task.wait(1)
-    TextBox.Text = ""
-  end
-      
-end) 
+    if TextBox.Text == ";sfov" then
+        Fov120()
+        TextBox.Text = ""
+    end
+ 
+    if TextBox.Text == ";hj" then
+        HighJump()
+        TextBox.Text = ""
+    end
+    if TextBox.Text == ";highlight" then
+        Highlight()
+        TextBox.Text = ""
+    end
+    if TextBox.Text == ";airv" then
+        Uninject()
+        TextBox.Text = ""
+    end
+    if TextBox.Text == ";Sque" then
+        AutoQue()
+        TextBox.Text = ""
+    end
+end
+)
