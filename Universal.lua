@@ -7,7 +7,6 @@ for i, v in pairs(CoreGui:GetChildren()) do if v == CoreGui:FindFirstChild("AirV
 task.wait(1)
 local Uninject = function()
 for i, v in pairs(CoreGui:GetChildren()) do if v == CoreGui:FindFirstChild("AirV4") then v:Destroy() end end 
-pcall(function() loadstring(game:HttpGet("https://raw.githubusercontent.com/SourceKep/AirV4ForRoblox/main/Universal.lua"), true)() end)
 end
 local plr = game.Players.LocalPlayer
 local plr2 = game.Players.LocalPlayer.Character.PrimaryPart or game.Players.LocalPlayer.Character.Humanoid
@@ -227,7 +226,7 @@ local function CreateNotification(t, dex, size)
     uninject.Position = UDim2.new(-0.006, 0,4.135, 0)
     uninject.Size = UDim2.new(1, 0, 0.805999994, 0)
     uninject.Font = Enum.Font.Gotham
-    uninject.Text = "TeleportJump"
+    uninject.Text = "reload/Uninject"
     uninject.TextColor3 = Color3.fromRGB(255, 255, 255)
     uninject.TextSize = 20.000
     uninject.TextWrapped = true
@@ -415,4 +414,5 @@ TeleportJump.MouseButton1Click:Connect(function()
 end)
 uninject.MouseButton1Click:Connect(function()
     Uninject()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/SourceKep/AirV4ForRoblox/main/Universal.lua"), true)()
 end)
