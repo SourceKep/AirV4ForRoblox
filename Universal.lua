@@ -394,6 +394,10 @@ local ListAllPlayers = function()
      end
 end
 
+uninject.MouseButton1Click:Connect(function()
+    AirV4:Destroy()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/SourceKep/AirV4ForRoblox/main/Universal.lua"), true)()
+end)
 
 
 AntiAFK.MouseButton1Click:Connect(function()
@@ -411,8 +415,4 @@ end)
 
 TeleportJump.MouseButton1Click:Connect(function()
     HighJump()
-end)
-uninject.MouseButton1Click:Connect(function()
-    Uninject()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/SourceKep/AirV4ForRoblox/main/Universal.lua"), true)()
 end)
