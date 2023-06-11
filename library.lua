@@ -76,7 +76,7 @@ function library:CreateWindow(tabl)
         button.Name = "Button"
         button.Parent = Window
         button.BackgroundColor3 = Color3.fromRGB(55, 66, 218)
-        button.Position = UDim2.new(-0.00254485477, 0, 0.991822243, 0)
+        button.Position = Settings.Pos
         button.Size = UDim2.new(1, 0, 0.80590862, 0) 
         button.Font = Enum.Font.Gotham
         button.Text = Settings.Name
