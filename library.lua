@@ -72,10 +72,10 @@ function library:MainWindow(tabl)
 end
 
     function library:CreateWindow(tabl)
-        local Window = Instance.new("Frame")
+        local Window2 = Instance.new("Frame")
         local Tittle = Instance.new("TextLabel")
         Tittle.Name = tabl.Name
-        Tittle.Parent = Window
+        Tittle.Parent = Window2
         Tittle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
         Tittle.BackgroundTransparency = 1.000
         Tittle.Position = tabl.Pos
@@ -86,12 +86,12 @@ end
         Tittle.TextScaled = true
         Tittle.TextSize = 30.000
         Tittle.TextWrapped = true
-        Window.Parent = Vair
-        Window.Name = tabl.Name
-        Window.BackgroundColor3 = Color3.fromRGB(34, 38, 58)
-        Window.Position = UDim2.new(0.007, 0,0.123, 0)
-        Window.Size = UDim2.new(0.174, 0,0.075, 0)
-        local frame = Window
+        Window2.Parent = Vair
+        Window2.Name = tabl.Name
+        Window2.BackgroundColor3 = Color3.fromRGB(34, 38, 58)
+        Window2.Position = UDim2.new(0.007, 0,0.123, 0)
+        Window2.Size = UDim2.new(0.174, 0,0.075, 0)
+        local frame = Window2
         local dragToggle = nil
         local dragSpeed = 0.25
         local dragStart = nil
@@ -122,14 +122,12 @@ end
                 end
             end
         end)
-
-
-
+      
     function library:CreateButton(Settings)
         local Button = {}
         local button = Instance.new("TextButton")
         button.Name = "Button"
-        button.Parent = Window
+        button.Parent = Window2
         button.BackgroundColor3 = Color3.fromRGB(45, 55, 76)
         button.Position = Settings.Pos
         button.Size = UDim2.new(1, 0, 0.80590862, 0) 
@@ -147,7 +145,14 @@ end
         return Button
     end
 
-     
+    
+
+
+
+
+
+
+
     function library:Notification(Tittle, text) 
         local Notification = Instance.new("Frame")
         local ModuleToggle = Instance.new("TextLabel")
