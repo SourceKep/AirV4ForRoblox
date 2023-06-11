@@ -82,8 +82,6 @@ end
 local gui = {}
     function gui:CreateButton(Settings)
         local button = Instance.new("TextButton")
-        local corner2 = Instance.new("UICorner")
-        corner2.Parent = button
         button.Name = "Button"
         button.Parent = Window2
         button.BackgroundColor3 = Color3.fromRGB(45, 55, 76)
