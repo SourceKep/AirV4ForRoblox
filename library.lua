@@ -78,7 +78,7 @@ end
         Tittle.Parent = Window2
         Tittle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
         Tittle.BackgroundTransparency = 1.000
-        Tittle.Position = tabl.Pos
+        Tittle.Position = UDim2.new(0.241937205, 0, 0.0567000508, 0)
         Tittle.Size = UDim2.new(0.510048926, 0, 0.883073866, 0)
         Tittle.Font = Enum.Font.Gotham
         Tittle.Text = tabl.Name
@@ -89,7 +89,7 @@ end
         Window2.Parent = Vair
         Window2.Name = tabl.Name
         Window2.BackgroundColor3 = Color3.fromRGB(34, 38, 58)
-        Window2.Position = UDim2.new(0.007, 0,0.123, 0)
+        Window2.Position = tabl.Pos
         Window2.Size = UDim2.new(0.174, 0,0.075, 0)
         local frame = Window2
         local dragToggle = nil
