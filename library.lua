@@ -6,6 +6,7 @@ local VairInjected = true;
 local library = {}
 local Commands = {}
 local Vair = Instance.new("ScreenGui", Core)
+Vair.Name = "AirV4"
 Commands["Uninject"] = function()
     for _,ui in pairs(Core:GetChildren()) do
         local Inst = Core:WaitForChild("AirV4")
