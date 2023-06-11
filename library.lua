@@ -77,28 +77,27 @@ function library:CreateWindow(tabl)
         end
     end)
 
-
-function library:CreateButton(Tab)
-    
-    local Button = Instance.new("TextButton")
-
-    
-    Button.Name = "Button"
-    Button.Parent = Window
-    
-    Button.Position = UDim2.new(-0.00254485477, 0, 0.991822243, 0)
-    Button.Size = UDim2.new(1, 0, 0.80590862, 0)
-    Button.Font = Enum.Font.Gotham
-    Button.Text = Tab.Name
-    Button.TextColor3 = Color3.fromRGB(255, 255, 255)
-    Button.TextSize = 20.000
-    Button.MouseButton1Click:Connect(function()
-         if typeof(Tab.Function) == "function" then
-        pcall(Tab.Function)
-         end
-    end)
-end
-
+    function library:CreateButton(Settings)
+        local Button = {}
+        local button = Instance.new("TextButton")
+        button.Name = "Button"
+        button.Parent = Window
+        button.BackgroundColor3 = Color3.fromRGB(55, 66, 218)
+        button.Position = Settings.Pos
+        button.Size = UDim2.new(1, 0, 0.80590862, 0) 
+        button.Font = Enum.Font.Gotham
+        button.Text = Settings.Name
+        button.TextColor3 = Color3.fromRGB(255, 255, 255)
+        button.TextSize = 20.000
+        button.MouseButton1Click:Connect(function()
+             if typeof(Settings.Function) == "function" then
+            pcall(Settings.Function)
+            else
+            error("Did not get a function :C")
+             end
+        end)
+        return Button
+    end
 end
 
 return library
