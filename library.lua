@@ -20,6 +20,8 @@ end
 
     function library:CreateWindow(tabl)
         local Window2 = Instance.new("Frame")
+        local corner = Instance.new("UICorner")
+        corner.Parent = Window2
         local Tittle = Instance.new("TextLabel")
         Tittle.Name = tabl.Name
         Tittle.Parent = Window2
@@ -80,6 +82,8 @@ end
 local gui = {}
     function gui:CreateButton(Settings)
         local button = Instance.new("TextButton")
+        local corner2 = Instance.new("UICorner")
+        corner2.Parent = button
         button.Name = "Button"
         button.Parent = Window2
         button.BackgroundColor3 = Color3.fromRGB(45, 55, 76)
@@ -155,7 +159,7 @@ local g = {Position = UDim2.new(200, 0,0, 0)}
 local Tween = TweenService:Create(Notification, TweenInformation, Goals)
 local Tween2 = TweenService:Create(Notification, TweenInformation2, g)
 Tween:Play()
-task.wait(1)
+task.wait(0.9)
 Tween2:Play()
 task.wait(2)
 Notification.Position = UDim2.new(200, 0,0, 0)
