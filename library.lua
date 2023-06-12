@@ -30,7 +30,7 @@ Vair.Name = "AirV4"
         Window2.Parent = Vair
         Window2.BorderSizePixel = 0
         Window2.Name = tabl.Name
-        Window2.BackgroundColor3 = Color3.fromRGB(136, 146, 220)
+        Window2.BackgroundColor3 = Color3.fromRGB(57, 73, 194)
         Window2.Position = tabl.Pos
         Window2.Size = UDim2.new(0.174, 0,0.075, 0)
         local frame = Window2
@@ -38,7 +38,7 @@ Vair.Name = "AirV4"
         local dragSpeed = 0.25
         local dragStart = nil
         local startPos = nil
-    
+    --e
             local function updateInput(input)
             local delta = input.Position - dragStart
             local position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X,
@@ -75,15 +75,12 @@ Vair.Name = "AirV4"
 local gui = {}
     function gui:CreateButton(Settings)
         local button = Instance.new("TextButton")
-        local stroke = Instance.new("UIStroke")
-        stroke.Thickness = 2
-        stroke.Parent = button
-        stroke.Color = Color3.fromRGB(85, 80, 179)
-        button.Name = "Button"
+        button.Name = "GUIButton"
         button.Parent = Window2
-        button.BackgroundColor3 = Color3.fromRGB(112, 97, 223)
+        button.BackgroundColor3 = Color3.fromRGB(39, 66, 183)
         button.Position = Settings.Pos
         button.BorderSizePixel = 0
+        button.BackgroundTransparency = 0.1
         button.Size = UDim2.new(1, 0, 0.80590862, 0) 
         button.Font = Enum.Font.Gotham
         button.Text = Settings.Name
@@ -165,4 +162,5 @@ end
     
     return gui
 end
+
 return library
