@@ -144,7 +144,7 @@ function lib.Window(tabl)
         local button = Instance.new("TextButton")
         button.Name = "GUIButton"
         button.Parent = Window2
-        button.BackgroundColor3 = Color3.fromRGB(44, 46, 55)
+        button.BackgroundColor3 = Color3.fromRGB(64, 74, 99)
         button.Position = Options.Pos
         button.BorderSizePixel = 0
         button.BackgroundTransparency = 0.1
