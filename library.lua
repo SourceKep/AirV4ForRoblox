@@ -16,7 +16,7 @@ Commands["Uninject"] = function()
     end
 end
 
-
+   function library:Delete() Vair:Destroy() end
 
     function library:CreateWindow(tabl)
         local Window2 = Instance.new("Frame")
