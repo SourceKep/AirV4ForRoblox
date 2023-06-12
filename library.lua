@@ -1,8 +1,9 @@
 local lib = {}
+
 local Core = game:GetService("CoreGui")
 local UIS = game:GetService("UserInputService")
 local Vair = Instance.new("ScreenGui", Core)
-
+function lib:Delete() Vair:Destroy() end
 function lib.ThemedWindow(tabl) 
 
         local Window2 = Instance.new("Frame")
