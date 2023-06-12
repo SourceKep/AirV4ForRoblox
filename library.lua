@@ -7,37 +7,34 @@ local library = {}
 local Commands = {}
 local Vair = Instance.new("ScreenGui", Core)
 Vair.Name = "AirV4"
-Commands["Uninject"] = function()
-    for _,ui in pairs(Core:GetChildren()) do
-        local Inst = Core:WaitForChild("AirV4")
-        if ui == Inst then
-            ui:Destroy()
-        end
-    end
-end
 
+--510048926
    function library:Delete() Vair:Destroy() end
 
     function library:CreateWindow(tabl)
         local Window2 = Instance.new("Frame")
-        local corner = Instance.new("UICorner")
-        corner.Parent = Window2
         local Tittle = Instance.new("TextLabel")
+        local uistroke = Instance.new("UIStroke")
+        uistroke.Thickness = 3
+        uistroke.Parent = Window2
+        uistroke.Color = Color3.fromRGB(242, 242, 242)
         Tittle.Name = tabl.Name
         Tittle.Parent = Window2
         Tittle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
         Tittle.BackgroundTransparency = 1.000
-        Tittle.Position = UDim2.new(0.241937205, 0, 0.0567000508, 0)
-        Tittle.Size = UDim2.new(0.510048926, 0, 0.883073866, 0)
+        Tittle.Position = UDim2.new(0.10, 0, 0.0567000508, 0)
+        Tittle.Size = UDim2.new(0.8, 0, 0.883073866, 0)
         Tittle.Font = Enum.Font.Gotham
         Tittle.Text = tabl.Name
         Tittle.TextColor3 = Color3.fromRGB(255, 255, 255)
-        Tittle.TextScaled = true
-        Tittle.TextSize = 30.000
+        Tittle.TextScaled = false
+        Tittle.TextSize = 40
         Tittle.TextWrapped = true
+
         Window2.Parent = Vair
+        Window2.BorderSizePixel = 0
         Window2.Name = tabl.Name
-        Window2.BackgroundColor3 = Color3.fromRGB(34, 38, 58)
+        Window2.BackgroundColor3 = Color3.fromRGB(54, 56, 70)
         Window2.Position = tabl.Pos
         Window2.Size = UDim2.new(0.174, 0,0.075, 0)
         local frame = Window2
