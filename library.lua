@@ -14,7 +14,6 @@ Vair.Name = "AirV4"
     function library:CreateWindow(tabl)
         local Window2 = Instance.new("Frame")
         local Tittle = Instance.new("TextLabel")
-        uistroke.Color = Color3.fromRGB(242, 242, 242)
         Tittle.Name = tabl.Name
         Tittle.Parent = Window2
         Tittle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
