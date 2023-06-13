@@ -10,9 +10,8 @@ local opened = true
                       Vair.Enabled = true
                          task.wait(0.1)
                          opened = false   
-                         elseif 
-                           opened == false then
-                           Vair.Enabled = true
+                         elseif opened == false then
+                           Vair.Enabled = false
                            task.wait(0.1)
                       opened = true                  
                                 
