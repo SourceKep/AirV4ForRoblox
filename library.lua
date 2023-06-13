@@ -3,15 +3,28 @@ local Core = game:GetService("CoreGui")
 local UIS = game:GetService("UserInputService")
 local Vair = Instance.new("ScreenGui", Core)
 function lib:Delete() Vair:Destroy() end
+local opened = true
 UIS.InputBegan:Connect(function(input) 
         if input.KeyCode == Enum.KeyCode.M then
-            Vair.Enabled = true
+            if opened then
+               if opened == true then
+                 Vair.Enabled = true
+                       task.wait(0.1)
+                       opened = false           
+                  end
+              end
          end
 end)
 
 UIS.InputEnded:Connect(function(input) 
         if input.KeyCode == Enum.KeyCode.M then
-            Vair.Enabled = false
+           if opened then
+               if opened == false then
+                 Vair.Enabled = false
+                       task.wait(0.1)
+                       opened = true           
+                  end
+              end
          end
 end)
 
