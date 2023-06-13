@@ -1,9 +1,8 @@
 local lib = {}
-
 local Core = game:GetService("CoreGui")
 local UIS = game:GetService("UserInputService")
 local Vair = Instance.new("ScreenGui", Core)
-function lib:Delete() Vair:Destroy() end
+
 function lib.ThemedWindow(tabl) 
 
         local Window2 = Instance.new("Frame")
@@ -145,7 +144,7 @@ function lib.Window(tabl)
         local button = Instance.new("TextButton")
         button.Name = "GUIButton"
         button.Parent = Window2
-        button.BackgroundColor3 = Color3.fromRGB(64, 74, 99)
+        button.BackgroundColor3 = Color3.fromRGB(39, 42, 60)
         button.Position = Options.Pos
         button.BorderSizePixel = 0
         button.BackgroundTransparency = 0.1
