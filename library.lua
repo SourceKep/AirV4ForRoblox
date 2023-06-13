@@ -3,6 +3,18 @@ local Core = game:GetService("CoreGui")
 local UIS = game:GetService("UserInputService")
 local Vair = Instance.new("ScreenGui", Core)
 function lib:Delete() Vair:Destroy() end
+UIS.InputBegan:Connect(function(input) 
+        if input.KeyCode == Enum.KeyCode.M then
+            Vair.Enabled = true
+         end
+end)
+
+UIS.InputEnded:Connect(function(input) 
+        if input.KeyCode == Enum.KeyCode.M then
+            Vair.Enabled = false
+         end
+end)
+
 function lib.ThemedWindow(tabl) 
 
         local Window2 = Instance.new("Frame")
