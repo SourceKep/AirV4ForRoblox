@@ -6,7 +6,6 @@ function lib:Delete() Vair:Destroy() end
 local opened = true
 UIS.InputBegan:Connect(function(input) 
         if input.KeyCode == Enum.KeyCode.M then
-            if opened then
                if opened == true then
                  Vair.Enabled = true
                        task.wait(0.1)
@@ -16,9 +15,8 @@ UIS.InputBegan:Connect(function(input)
                          Vair.Enabled = true
                          task.wait(0.1)
                     opened == true            
-                  end
-              end
-         end
+              end   
+       end
 end)
 
 
