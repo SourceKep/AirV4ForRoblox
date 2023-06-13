@@ -10,23 +10,18 @@ UIS.InputBegan:Connect(function(input)
                if opened == true then
                  Vair.Enabled = true
                        task.wait(0.1)
-                       opened = false           
+                       opened = false   
+                       elseif 
+                         opened == false then
+                         Vair.Enabled = true
+                         task.wait(0.1)
+                    opened == true            
                   end
               end
          end
 end)
 
-UIS.InputEnded:Connect(function(input) 
-        if input.KeyCode == Enum.KeyCode.M then
-           if opened then
-               if opened == false then
-                 Vair.Enabled = false
-                       task.wait(0.1)
-                       opened = true           
-                  end
-              end
-         end
-end)
+
 
 function lib.ThemedWindow(tabl) 
 
