@@ -19,6 +19,19 @@ local opened = true
        end
   end)
 
+if Enum.Platform.Android then
+    local un = Instance.new("TextButton")
+    un.BackgroundTransparency = 1
+    un.Size = UDim2.new(1, 0, 0.80590862, 0)
+    un.Position = UDim2.new(0.29,0,0.150,0)
+    un.TouchTap:Connect(function()
+        lib:Delete()
+    end)
+    un.Text = "MobileUninject"
+end
+
+
+
 
 
 function lib.ThemedWindow(tabl) 
