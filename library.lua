@@ -19,7 +19,7 @@ local opened = true
        end
   end)
 
-if Enum.Platform == Enum.Platform.Android then
+if Enum.Platform.Android then
     local un = Instance.new("TextButton")
     un.BackgroundTransparency = 1
     un.Size = UDim2.new(1, 0, 0.80590862, 0)
@@ -118,6 +118,10 @@ end
 
 function lib.Window(tabl)
     local Window2 = Instance.new("Frame")
+    local container = Instance.new("Frame")
+    container.Parent = Window2
+    container.BackgroundColor3 = Color3.fromRGB(51, 54, 76)
+    container.Size = UDim2.new(1, 0,8,0)
     local Tittle = Instance.new("TextLabel")
     Tittle.Name = tabl.Name
     Tittle.Parent = Window2
@@ -173,12 +177,12 @@ function lib.Window(tabl)
     local wind = {}
     function wind.CreateButton(Options)
         local button = Instance.new("TextButton")
-        if Enum.Platform == Enum.Platform.Android or Enum.Platform.IOS or Enum.Platform.OSX then
+        if Enum.Platform == Enum.Platform.Android or Enum.Platform.IOS then
             button.Size = UDim2.new(1, 0, 0.75, 0) 
-        else
+        elseif Enum.Platform.UWP then
             button.Size = UDim2.new(1, 0, 0.80590862, 0) 
         end
-        button.Name = "GUIButton"
+        button.Name = "Button"
         button.Parent = Window2
         button.BackgroundColor3 = Color3.fromRGB(39, 42, 60)
         button.Position = Options.Pos
@@ -198,6 +202,5 @@ function lib.Window(tabl)
     end
     return wind
 end
-
 
 return lib
