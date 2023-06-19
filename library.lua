@@ -121,7 +121,7 @@ function lib.Window(tabl)
     local container = Instance.new("Frame")
     container.Parent = Window2
     container.BackgroundColor3 = Color3.fromRGB(51, 54, 76)
-    container.Size = UDim2.new(1, 0,8,0)
+    container.Size = UDim2.new(tabl.Pos)
     local Tittle = Instance.new("TextLabel")
     Tittle.Name = tabl.Name
     Tittle.Parent = Window2
