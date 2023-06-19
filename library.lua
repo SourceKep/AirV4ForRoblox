@@ -19,21 +19,6 @@ local opened = true
        end
   end)
 
-if Enum.Platform.Android then
-    local un = Instance.new("TextButton")
-    un.BackgroundTransparency = 1
-    un.Size = UDim2.new(1, 0, 0.80590862, 0)
-    un.Position = UDim2.new(0.29,0,0.150,0)
-    un.TouchTap:Connect(function()
-        lib:Delete()
-    end)
-    un.Text = "MobileUninject"
-end
-
-
-
-
-
 function lib.ThemedWindow(tabl) 
 
         local Window2 = Instance.new("Frame")
@@ -121,7 +106,7 @@ function lib.Window(tabl)
     local container = Instance.new("Frame")
     container.Parent = Window2
     container.BackgroundColor3 = Color3.fromRGB(51, 54, 76)
-    container.Size = UDim2.new(tabl.Pos) + tabl.Pos
+    container.Size = tabl.ContainerSize
     local Tittle = Instance.new("TextLabel")
     Tittle.Name = tabl.Name
     Tittle.Parent = Window2
@@ -177,11 +162,11 @@ function lib.Window(tabl)
     local wind = {}
     function wind.CreateButton(Options)
         local button = Instance.new("TextButton")
-        if Enum.Platform == Enum.Platform.Android or Enum.Platform.IOS then
-            button.Size = UDim2.new(1, 0, 0.75, 0) 
-        elseif Enum.Platform.UWP then
-            button.Size = UDim2.new(1, 0, 0.80590862, 0) 
-        end
+        local HighLight = Instance.new("Highlight")
+        HighLight.Parent = button
+        HighLight.FillTransparency = 1
+        HighLight.OutlineColor = Color3.fromRGB(47, 51, 73)
+        button.Size = UDim2.new(1, 0, 0.80590862, 0) 
         button.Name = "Button"
         button.Parent = Window2
         button.BackgroundColor3 = Color3.fromRGB(39, 42, 60)
