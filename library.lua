@@ -175,7 +175,7 @@ function lib.Window(tabl)
         local button = Instance.new("TextButton")
         if Enum.Platform == Enum.Platform.Android or Enum.Platform.IOS or Enum.Platform.OSX then
             button.Size = UDim2.new(1, 0, 0.75, 0) 
-        elseif Enum.Platform.UWP then
+        else
             button.Size = UDim2.new(1, 0, 0.80590862, 0) 
         end
         button.Name = "GUIButton"
