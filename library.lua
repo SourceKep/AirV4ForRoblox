@@ -19,12 +19,21 @@ local opened = true
        end
   end)
 
+
+lib["ID1"] = 1
+lib["ID2"] = 1.80
+lib["ID3"] = 2.61
+lib["ID4"] = 3.41
+lib["ID5"] = 4.19
+lib["ID6"] = 4.999999
+
+
 function lib.Window(tabl)
     local Window2 = Instance.new("Frame")
     local container = Instance.new("Frame")
     container.Parent = Window2
     container.BackgroundColor3 = Color3.fromRGB(51, 54, 76)
-    container.Size = tabl.ContainerSize
+    container.Size = UDim2.new(1,0,tabl.CSZ,0)
     local Tittle = Instance.new("TextLabel")
     Tittle.Name = tabl.Name
     Tittle.Parent = Window2
