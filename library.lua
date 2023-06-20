@@ -20,12 +20,12 @@ local opened = true
   end)
 
 
-lib["ID1"] = 1
-lib["ID2"] = 1.80
-lib["ID3"] = 2.61
-lib["ID4"] = 3.41
-lib["ID5"] = 4.19
-lib["ID6"] = 4.999999
+lib["ID1"] = UDim2.new(1,0,1,0)
+lib["ID2"] = UDim2.new(1,0,1.80,0)
+lib["ID3"] = UDim2.new(1,0,2.61,0)
+lib["ID4"] =  UDim2.new(1,0,3.41,0)
+lib["ID5"] = UDim2.new(1,0,4.19,0)
+lib["ID6"] = UDim2.new(1,0,4.999999,0)
 
 
 function lib.Window(tabl)
