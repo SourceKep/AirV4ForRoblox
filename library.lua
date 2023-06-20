@@ -1,4 +1,4 @@
-\local lib = {}
+local lib = {}
 local Core = game:GetService("CoreGui")
 local TweenService = game:GetService("TweenService")
 local UIS = game:GetService("UserInputService")
@@ -15,7 +15,6 @@ local opened = true
                            Vair.Enabled = false
                            task.wait(0.1)
                       opened = true                  
-                                
             end
        end
   end)
