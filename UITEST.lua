@@ -99,25 +99,21 @@ function lib.Window(tabl)
         button.TextSize = 20.000
 
         button.MouseButton1Click:Connect()
-        local Holder
+        local Holder = true
         local Function = coroutine.create(function()
             pcall(tabl.Function)
         end)
         if Holder then
             if Holder == true then
-            local Task = {
-                button.BackgroundColor3=Color3.fromRGB(23, 27, 54)
-            }
             local Info = TweenInfo.new(1,Enum.EasingStyle.Sine,Enum.EasingDirection.InOut, 0, false)
-            local tween = TweenService:Create(button, Info, Task)
+            local tween = TweenService:Create(button, Info,{BackgroundColor3=Color3.fromRGB(23, 27, 54)}):Play()
+            button.BackgroundColor3 = Color3.fromRGB(23, 27, 54)
                 coroutine.resume(Function)
                 Holder = false
             elseif Holder == false then
-                local Task = {
-                    button.BackgroundColor3 = Color3.fromRGB(39, 42, 60)
-                }
                 local Info = TweenInfo.new(1,Enum.EasingStyle.Sine,Enum.EasingDirection.InOut, 0, false)
-                local tween = TweenService:Create(button, Info, Task)
+                local tween = TweenService:Create(button, Info,{BackgroundColor3=Color3.fromRGB(39, 42, 60)}):Play()
+                button.BackgroundColor3 = Color3.fromRGB(39, 42, 60)
                 coroutine.yield(Function)
                 Holder = true
             end
