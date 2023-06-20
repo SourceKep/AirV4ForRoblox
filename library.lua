@@ -1,4 +1,4 @@
-local lib = {}
+\local lib = {}
 local Core = game:GetService("CoreGui")
 local TweenService = game:GetService("TweenService")
 local UIS = game:GetService("UserInputService")
