@@ -24,13 +24,14 @@ function lib.Window(tabl)
     UIS.InputBegan:Connect(function(input)
         if input.KeyCode == Enum.KeyCode.M then
         if opened == true then
-                    Vair.Enabled = true
                        local Tween = TweenService:Create(Window2, Info, {BackgroundTransparency = 0}):Play()
+                       Window2.Visible = true
                        task.wait(1)
                        opened = false
                        elseif opened == false then
                         local Tween = TweenService:Create(Window2, Info, {BackgroundTransparency = 1}):Play()
                           task.wait(1)
+                          Window2.Visible = false
                          Vair.Enabled = false
                opened = true
           end
