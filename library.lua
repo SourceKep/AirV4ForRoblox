@@ -118,13 +118,13 @@ end)
             local Info = TweenInfo.new(0.2,Enum.EasingStyle.Sine,Enum.EasingDirection.InOut, 0, false)
             local tween = TweenService:Create(button, Info,{BackgroundColor3=Color3.fromRGB(27, 29, 42)}):Play()
             pcall(Options.Function)
-            task.wait(0.5)
+            task.wait(0.2)
            button.BackgroundColor3 = Color3.fromRGB(27, 29, 42)
                 Holder = false
             elseif Holder == false then
                 local Info = TweenInfo.new(1,Enum.EasingStyle.Sine,Enum.EasingDirection.InOut, 0, false)
                 local tween = TweenService:Create(button, Info,{BackgroundColor3=Color3.fromRGB(39, 42, 60)}):Play()
-               task.wait(0.5)
+               task.wait(0.2)
                button.BackgroundColor3 = Color3.fromRGB(39, 42, 60)
                 Holder = true
            end
