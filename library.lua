@@ -10,7 +10,7 @@ local opened = true
 
   function lib:RemoveButtonCDown()
      while true do
-        opened = true  
+        opened = true
         task.wait()
      end
   end
@@ -20,20 +20,19 @@ function lib.Window(tabl)
     Window2.BackgroundTransparency = 1
     local container = Instance.new("Frame")
     local Info = TweenInfo.new(1,Enum.EasingStyle.Sine,Enum.EasingDirection.InOut, 0, false)
-    local Tween = TweenService:Create(Window2, Info, {BackgroundTransparency = 0})
-    local Tween2 = TweenService:Create(Window2, Info, {BackgroundTransparency = 1})
-    UIS.InputBegan:Connect(function(input) 
+    local Tween2 = TweenService:Create(Window2, Info, {BackgroundTransparency = 1}):Play()
+    UIS.InputBegan:Connect(function(input)
         if input.KeyCode == Enum.KeyCode.M then
         if opened == true then
                     Vair.Enabled = true
-                       Tween:Play()
-                       task.wait(0.1)
-                       opened = false   
+                       local Tween = TweenService:Create(Window2, Info, {BackgroundTransparency = 0}):Play()
+                       task.wait(1)
+                       opened = false
                        elseif opened == false then
-                        Tween2:Play()
-                          task.wait(0.1)
+                        local Tween = TweenService:Create(Window2, Info, {BackgroundTransparency = 1}):Play()
+                          task.wait(1)
                          Vair.Enabled = false
-               opened = true              
+               opened = true
           end
      end
 end)
@@ -75,7 +74,7 @@ end)
         game:GetService('TweenService'):Create(frame, TweenInfo.new(dragSpeed), {Position = position}):Play()
         end
         frame.InputBegan:Connect(function(input)
-        if (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) then 
+        if (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) then
         dragToggle = true
         dragStart = input.Position
         startPos = frame.Position
@@ -102,7 +101,7 @@ end)
         HighLight.Parent = button
         HighLight.FillTransparency = 1
         HighLight.OutlineColor = Color3.fromRGB(86, 97, 159)
-        button.Size = UDim2.new(1, 0, 0.80590862, 0) 
+        button.Size = UDim2.new(1, 0, 0.80590862, 0)
         button.Name = "Button"
         button.Parent = Window2
         button.BackgroundColor3 = Color3.fromRGB(39, 42, 60)
