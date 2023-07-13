@@ -96,7 +96,7 @@ function lib.Api.WindowAPI.Window(tabl)
         button.Name = "Button"
         button.Parent = Window2
         button.BackgroundColor3 = Color3.fromRGB(39, 42, 60)
-        button.Position = Udim2.new(0,0,Options.Pos,0)
+        button.Position = UDim2.new(1,0,Options.Pos,0)
         button.BorderSizePixel = 0
         button.BackgroundTransparency = 0.1
         button.Font = Enum.Font.Gotham
