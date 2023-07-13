@@ -1,19 +1,37 @@
 local lib = {}
 local Core = game:GetService("CoreGui")
+local LocalizationService = game:GetService("LocalizationService")
 local TweenService = game:GetService("TweenService")
 local UIS = game:GetService("UserInputService")
 local Vair = Instance.new("ScreenGui", Core)
-function lib:Delete() Vair:Destroy() end
 
 
-local opened = true
+local opened = true -- Close Window And Open Window also used as tweening
+local Holder = true -- Button Tween
+local Owner = "MemMyP"
 
-  function lib:RemoveButtonCDown()
-     while true do
-        opened = true
-        task.wait()
-     end
-  end
+
+function lib:Delete() 
+    Vair:Destroy() 
+end
+function lib:ClearTable()   
+   table.clear(lib)
+end
+
+ 
+
+
+function lib:Tittle(Options_Table)
+    local TextT = Instance.new("TextLabel")
+    TextT.Position = Options_Table.__Position
+    TextT.Parent = Vair
+    TextT.BackgroundColor3 = Options_Table.__Color3
+    TextT.BackgroundTransparency = 1
+    TextT.Size =  UDim2.new(0.174, 0,0.075, 0)
+    TextT.TextScaled = true
+    TextT.Text = Options_Table.__Text
+end
+
 
 function lib.Window(tabl)
     local Window2 = Instance.new("Frame")
@@ -24,14 +42,15 @@ function lib.Window(tabl)
     UIS.InputBegan:Connect(function(input)
         if input.KeyCode == Enum.KeyCode.M then
         if opened == true then
-                       local Tween = TweenService:Create(Window2, Info, {BackgroundTransparency = 0}):Play()
                        Window2.Visible = true
                        task.wait(1)
                        opened = false
-                       elseif opened == false then
-                        local Tween = TweenService:Create(Window2, Info, {BackgroundTransparency = 1}):Play()
+            elseif opened == false then
+                        local Twi = TweenService:Create(Window2, Info, {BackgroundTransparency = 1}):Play()
                           task.wait(1)
+
                           Window2.Visible = false
+
                          Vair.Enabled = false
                opened = true
           end
@@ -94,8 +113,8 @@ end)
         end
     end)
 
-    local wind = {}
-    function wind.CreateButton(Options)
+    local WindowAddons = {}
+    function WindowAddons.CreateButton(Options)
         --OptionsHolder
         local button = Instance.new("TextButton")
         local HighLight = Instance.new("Highlight")
@@ -113,7 +132,6 @@ end)
         button.Text = Options.Name
         button.TextColor3 = Color3.fromRGB(255, 255, 255)
         button.TextSize = 20.000
-        local Holder = true
         button.MouseButton1Click:Connect(function()
             if Holder == true then
             local Info = TweenInfo.new(0.5,Enum.EasingStyle.Sine,Enum.EasingDirection.InOut, 0, false)
@@ -131,7 +149,9 @@ end)
            end
     end)
 end
-    return wind
+
+    return WindowAddons
 end
 
 return lib
+
