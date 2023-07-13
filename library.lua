@@ -25,7 +25,7 @@ function lib:Tittle(Options_Table)
     local TextT = Instance.new("TextLabel")
     TextT.Position = Options_Table.__Position
     TextT.Parent = Vair
-    TextT.BackgroundColor3 = Options_Table.__Color3
+    TextT.TextColor3 = Options_Table.__Color3
     TextT.BackgroundTransparency = 1
     TextT.Size =  UDim2.new(0.174, 0,0.075, 0)
     TextT.TextScaled = true
