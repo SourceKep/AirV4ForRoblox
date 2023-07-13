@@ -1,32 +1,64 @@
-local lib = {}
+local lib = {
+    Api = {ButtonAPI = {}, WindowAPI = {}},
+}
 local Core = game:GetService("CoreGui")
 local LocalizationService = game:GetService("LocalizationService")
+local RunService = game:GetService("RunService")
 local TweenService = game:GetService("TweenService")
 local UIS = game:GetService("UserInputService")
 local Vair = Instance.new("ScreenGui", Core)
 
 
-local opened = true -- Close Window And Open Window also used as tweening
+local opened = true -- The state of weather the UX, UI, GUI is opened
 local Holder = true -- Button Tween
 local Owner = "MemMyP"
+local IVPLACEHOLDER = {}
 
-
-function lib:Delete() 
-    Vair:Destroy() 
+function lib:Delete()
+    Vair:Destroy()
 end
-function lib:ClearTable()   
+function ClearAll()
+   Vair:Destroy()
    table.clear(lib)
+   table.clear(lib.Api)
+   table.clear(lib.Api.ButtonAPI)
+   table.clear(lib.Api.WindowAPI)
+end
+
+
+function lib:Shutdown()
+    ClearAll()
 end
 
 lib["OnKeyBindUninject"] = Instance.new("BindableEvent")
+lib["OnKeyBindOpenOrClose"] = Instance.new("BindableEvent")
 
-lib["OnKeyBindUninject"].Event:Connect(function()
+local UninjectConnection = lib.OnKeyBindUninject.Event:Connect(function()
     lib:Delete()
 end)
 
-UIS.InputBegan:Connect(function(input, gameProcessedEvent)
+local OnKeyBindOpenOrCloseConnection = lib["OnKeyBindOpenOrClose"].Event:Connect(function()
+    local keybind = UIS.InputBegan:Connect(function(input, IsTyping)
+        if IsTyping then return end
+         if input.KeyCode == Enum.KeyCode.M then
+            if opened == true then
+                opened = false
+            elseif opened == false then
+                opened = true
+            end
+         end
+     end)
+end)
+function lib:DisconnectAllCurrentConnections()
+    OnKeyBindOpenOrCloseConnection:Disconnect()
+    UninjectConnection:Disconnect()
+end
+
+UIS.InputBegan:Connect(function(input, IsTyping)
     if input.KeyCode == Enum.KeyCode.N then
         lib.OnKeyBindUninject:Fire()
+    elseif IsTyping then
+        return
     end
 end)
 
@@ -43,31 +75,12 @@ function lib:Tittle(Options_Table)
 end
 
 
-function lib.Window(tabl)
+function lib.Api.WindowAPI.Window(tabl)
     local Window2 = Instance.new("Frame")
     Window2.BackgroundTransparency = 1
     local container = Instance.new("Frame")
     local Info = TweenInfo.new(1,Enum.EasingStyle.Sine,Enum.EasingDirection.InOut, 0, false)
     local Tween2 = TweenService:Create(Window2, Info, {BackgroundTransparency = 1}):Play()
-    UIS.InputBegan:Connect(function(input)
-        if input.KeyCode == Enum.KeyCode.M then
-        if opened == true then
-                       Window2.Visible = true
-                       task.wait(1)
-                       opened = false
-            elseif opened == false then
-                        local Twi = TweenService:Create(Window2, Info, {BackgroundTransparency = 1}):Play()
-                          task.wait(1)
-
-                          Window2.Visible = false
-
-                         Vair.Enabled = false
-               opened = true
-          end
-     end
-end)
-
-
     container.Parent = Window2
     container.BackgroundColor3 = Color3.fromRGB(51, 54, 76)
     container.Size = UDim2.new(1,0,tabl.CSZ,0)
@@ -123,8 +136,7 @@ end)
         end
     end)
 
-    local WindowAddons = {}
-    function WindowAddons.CreateButton(Options)
+    function lib.Api.ButtonAPI.CreateButton(Options)
         --OptionsHolder
         local button = Instance.new("TextButton")
         local HighLight = Instance.new("Highlight")
@@ -135,7 +147,7 @@ end)
         button.Name = "Button"
         button.Parent = Window2
         button.BackgroundColor3 = Color3.fromRGB(39, 42, 60)
-        button.Position = Options.Pos
+        button.Position = UDim2.new(0,0,Options.Pos,0)
         button.BorderSizePixel = 0
         button.BackgroundTransparency = 0.1
         button.Font = Enum.Font.Gotham
@@ -160,8 +172,6 @@ end)
     end)
 end
 
-    return WindowAddons
+    return lib.Api.ButtonAPI
 end
-
 return lib
-
