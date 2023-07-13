@@ -18,7 +18,17 @@ function lib:ClearTable()
    table.clear(lib)
 end
 
- 
+lib["OnKeyBindUninject"] = Instance.new("BindableEvent")
+
+lib["OnKeyBindUninject"].Event:Connect(function()
+    lib:Delete()
+end)
+
+UIS.InputBegan:Connect(function(input, gameProcessedEvent)
+    if input.KeyCode == Enum.KeyCode.N then
+        lib.OnKeyBindUninject:Fire()
+    end
+end)
 
 
 function lib:Tittle(Options_Table)
